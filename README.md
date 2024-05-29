@@ -15,6 +15,11 @@
 | deleteCard             | Rosa               | 🌶️🌶️🌶️     | Supprimer une carte                                                |
 | createSettingMenu      | Aïssatou && Rosa   | 🌶️🌶️🌶️     | Afficher le menu lors du clique sur les trois petits points        |
 
-.js
-.cjs
-.mjs
+crossedInput(input);
+createInput(container);
+hoverInput(containerInput);
+deleteInput(containerInput);
+addCard(containerCard);
+changeCard(containerCard);
+deleteCard(card);
+createSettingMenu();
