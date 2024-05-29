@@ -1,41 +1,77 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>ToDoWilder</title>
-        <link ref="icon" href="./assets/favicon/favicon.ico" />
-        <link
-            ref="icon"
-            type="image/png"
-            size="32x32"
-            href="./assets/favicon/favicon-32x32.png"
-        />
-        <link
-            ref="icon"
-            type="image/png"
-            size="16x16"
-            href="./assets/favicon/favicon-16x16.png"
-        />
-        <link rel="stylesheet" href="style.css" />
 
-        <script src="./script.mjs" defer></script>
-    </head>
-    <body>
-        <header>
-            <h1>To-do</h1>
-            <p>Create your categorized task boards.</p>
-        </header>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDoWilder</title>
+    <link ref="icon" href="./assets/favicon/favicon.ico" />
+    <link ref="icon" type="image/png" size="32x32" href="./assets/favicon/favicon-32x32.png" />
+    <link ref="icon" type="image/png" size="16x16" href="./assets/favicon/favicon-16x16.png" />
+    <link rel="stylesheet" href="style.css" />
 
-        <main>
-            <div class="card"></div>
-        </main>
+    <script src="./script.mjs" defer></script>
+</head>
 
-        <nav>
-            <div class="add">
-                <img src="./assets/icon/add.svg" alt="" />
-            </div>
-            <img src="./assets/icon/dots.svg" alt="" />
-        </nav>
-    </body>
+<body>
+    <header>
+        <h1>📝 To-Do</h1>
+        <p>Create your categorized task boards.</p>
+    </header>
+
+    <main>
+        <div class="card inactive">
+            <header>
+                <div class="left">
+                    <h2>Groceries</h2>
+                    <p>3 of 9 Tasks</p>
+                </div>
+                <div class="right">
+                    <img src="./assets/icon/edit.svg" alt="Edit button">
+                </div>
+            </header>
+            <main>
+                <div class="left">
+                    <div>
+                        <input type="checkbox" id="input1">
+                        <label for="input1">Avocados</label>
+                    </div>
+                </div>
+                <div class="right">
+                    <img src="./assets/icon/delete.svg" alt="Delete button">
+                </div>
+            </main>
+        </div>
+        <div class="card active">
+            <header>
+                <div class="left">
+                    <h2>Groceries</h2>
+                    <p>3 of 9 Tasks</p>
+                </div>
+                <div class="right">
+                    <img src="./assets/icon/edit.svg" alt="Edit button">
+                </div>
+            </header>
+            <main>
+                <div class="left">
+                    <div>
+                        <input type="checkbox" id="input1">
+                        <label for="input1">Avocados</label>
+                    </div>
+                </div>
+                <div class="right">
+                    <img src="./assets/icon/delete.svg" alt="Delete button">
+                </div>
+            </main>
+        </div>
+    </main>
+
+    <nav>
+        <div class="add">
+            <img src="./assets/icon/add.svg" alt="Add button" />
+        </div>
+        <img src="./assets/icon/dots.svg" alt="More button" />
+    </nav>
+</body>
+
 </html>
