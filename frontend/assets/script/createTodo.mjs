@@ -13,6 +13,18 @@ export default function createTodo(container) {
             label.blur();
         }
     });
+
     label.focus();
+
+    // ajouter un barre input
+    inputCheck.addEventListener("click", () => {
+        if (inputCheck.checked) {
+            inputCheck.disabled = true;
+            label.contentEditable = false;
+            label.style.textDecoration = "line-through";
+            console.log(label);
+        }
+    });
+
 
 }
