@@ -15,6 +15,13 @@ export default function createCard(title) {
     // Create title for the left header
     const titleElement = document.createElement("h2");
     titleElement.innerHTML = title;
+    titleElement.contentEditable = true;
+    titleElement.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            titleElement.blur();
+        }
+    })
     headerLeft.appendChild(titleElement);
 
     // Create parapraphe for the left header
@@ -64,5 +71,5 @@ export default function createCard(title) {
     deleteImg.alt = "Delete button";
     mainRight.appendChild(deleteImg);
 
-    document.querySelector("main").appendChild(card);
+    return card;
 }
