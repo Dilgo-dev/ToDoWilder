@@ -15,5 +15,8 @@
 | prevCard               | Benjamin           | 🌶️🌶️       | Change to the previous card                                        | (containerCard)  | [ ]  |
 | searchCard             | Benjamin           | 🌶️🌶️       | Search a card                                                      | (containerCard)  | [ ]  |
 | deleteCard             | Rosa               | 🌶️🌶️🌶️     | Supprimer une carte                                                | (card)           | [x]  |
-| createSettingMenu      | Aïssatou && Rosa   | 🌶️🌶️🌶️     | Afficher le menu lors du clique sur les trois petits points        |                  | [ ]  |
+| Modif Css - background      | Damien   | 🌶️🌶️     | Ajouter différent backgrounds ainsi que la fonction de changement        |                  | [ ]  |
+| Modif Css - Bouton      | Damien   | 🌶️🌶️     | Ajouter différents boutons ainsi que la fonction de changement         |                  | [ ]  |
+| Modif Css - Fonctionnalité      | Damien ??  | 🌶️🌶️     | Ajouter différente fonctionnalité esthétique         |                  | [ ]  |
+
 
