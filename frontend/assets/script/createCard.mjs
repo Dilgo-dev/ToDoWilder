@@ -1,3 +1,5 @@
+import createTodo from "./createTodo.mjs";
+
 export default function createCard(title) {
     // Create the div with the class card
     const card = document.createElement("div");
@@ -31,7 +33,7 @@ export default function createCard(title) {
 
     // Create right header element
     const headerRight = document.createElement("div");
-    headerLeft.classList.add("right");
+    headerRight.classList.add("right");
     header.appendChild(headerRight);
 
     // Create the edit image
@@ -53,15 +55,15 @@ export default function createCard(title) {
     const containerInput = document.createElement("div");
     // Create the checkbox
     const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.id = "input1";
-    containerInput.appendChild(checkbox);
+    //checkbox.type = "checkbox";
+    //checkbox.id = "input1";
+    //containerInput.appendChild(checkbox);
     // Create the label
-    const label = document.createElement("label");
-    label.innerHTML = "Avocados";
+    //const label = document.createElement("label");
+    //label.innerHTML = "Avocados";
     //label.setAttribute("for", "input1");
-    containerInput.appendChild(label);
-    mainLeft.appendChild(containerInput);
+    //containerInput.appendChild(label);
+    //mainLeft.appendChild(containerInput);
 
     // Create main right element
     const mainRight = document.createElement("div");
@@ -74,5 +76,9 @@ export default function createCard(title) {
     deleteImg.alt = "Delete button";
     mainRight.appendChild(deleteImg);
 
+    edit.addEventListener("click", () => {
+        if (card.className.includes("inactive")) return;
+        createTodo(mainLeft);
+    });
     return card;
 }
