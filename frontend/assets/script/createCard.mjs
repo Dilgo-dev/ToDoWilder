@@ -61,8 +61,8 @@ export default function createCard(title) {
 
     // Create the palette image
     const palette = document.createElement("img");
-    edit.src = "./assets/icon/palette.svg";
-    edit.alt = "paletteButton";
+    palette.src = "./assets/icon/palette.svg";
+    palette.alt = "paletteButton";
     headerRight.appendChild(palette);
 
     // Create main element
@@ -93,10 +93,11 @@ export default function createCard(title) {
     mainRight.classList.add("right");
     main.appendChild(mainRight);
 
-    // Create the edit image
+    // Create the delete image
     const deleteImg = document.createElement("img");
     deleteImg.src = "./assets/icon/delete.svg";
     deleteImg.alt = "Delete button";
+    deleteImg.classList.add("delete-svg");
     mainRight.appendChild(deleteImg);
 
     edit.addEventListener("click", () => {
