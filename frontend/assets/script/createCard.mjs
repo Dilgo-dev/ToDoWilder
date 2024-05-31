@@ -59,6 +59,12 @@ export default function createCard(title) {
     edit.alt = "Edit button";
     headerRight.appendChild(edit);
 
+    // Create the palette image
+    const palette = document.createElement("img");
+    edit.src = "./assets/icon/palette.svg";
+    edit.alt = "paletteButton";
+    headerRight.appendChild(palette);
+
     // Create main element
     const main = document.createElement("main");
     card.appendChild(main);
