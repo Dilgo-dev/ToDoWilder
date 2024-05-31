@@ -15,6 +15,13 @@ export default function createCard(title) {
     // Create title for the left header
     const titleElement = document.createElement("h2");
     titleElement.innerHTML = title;
+    titleElement.contentEditable = true;
+    titleElement.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            titleElement.blur();
+        }
+    });
     headerLeft.appendChild(titleElement);
 
     // Create parapraphe for the left header
@@ -42,14 +49,17 @@ export default function createCard(title) {
     mainLeft.classList.add("left");
     main.appendChild(mainLeft);
 
+    // Create the container of the todo
     const containerInput = document.createElement("div");
-    const input = document.createElement("input");
-    input.type = "checkbox";
-    input.id = "input1";
-    containerInput.appendChild(input);
+    // Create the checkbox
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.id = "input1";
+    containerInput.appendChild(checkbox);
+    // Create the label
     const label = document.createElement("label");
     label.innerHTML = "Avocados";
-    label.setAttribute("for", "input1");
+    //label.setAttribute("for", "input1");
     containerInput.appendChild(label);
     mainLeft.appendChild(containerInput);
 
@@ -64,5 +74,5 @@ export default function createCard(title) {
     deleteImg.alt = "Delete button";
     mainRight.appendChild(deleteImg);
 
-    document.querySelector("main").appendChild(card);
+    return card;
 }
