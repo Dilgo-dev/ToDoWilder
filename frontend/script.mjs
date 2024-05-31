@@ -1,3 +1,4 @@
+import nextCard, { prevCard } from "./assets/script/nextCard.mjs";
 import createCard from "./assets/script/createCard.mjs";
 import getSavedCard from "./assets/script/getSavedCard.mjs";
 
@@ -27,4 +28,21 @@ addCard.addEventListener("click", () => {
     main.appendChild(card);
     // On affiche le tableau de toutes les cartes
     console.log(cardContent);
+});
+
+//changeCard(main, cardContent, 0);
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowUp") {
+        nextCard(main, cardContent);
+    }
+});
+
+main.addEventListener("wheel", (event) => {
+    if (event.deltaY > 0) {
+        prevCard(main, cardContent, 0, cardContent.length - 1);
+    } else {
+        nextCard(main, cardContent);
+    }
+    event.preventDefault();
 });
