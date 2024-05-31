@@ -1,29 +1,15 @@
 import createCard from "./assets/script/createCard.mjs";
+import getSavedCard from "./assets/script/getSavedCard.mjs";
+
 const main = document.querySelector("main");
+const addCard = document.querySelector("div.add");
 const cardContent = [];
 
-function getSavedCard() {
-    const saved = JSON.parse(localStorage.getItem("todos"));
-
-    if (!saved) return;
-    for (const todo of saved) {
-        const card = createCard(todo.title);
-        cardContent.push({ title: todo.title, element: card });
-        main.appendChild(card)
-    }
-    cardContent[cardContent.length - 1].element.classList.add("active");
-    for (const todo of cardContent.slice(0, -1)) {
-        todo.element.classList.add("inactive");
-    }
-}
-
-getSavedCard();
-
-const addCard = document.querySelector("div.add");
+getSavedCard(cardContent);
 
 addCard.addEventListener("click", () => {
     // Recupère le titre de la carte
-    const result = prompt("Titre de la nouvelle carte")
+    const result = prompt("Titre de la nouvelle carte");
     // Créer la carte avec le titre
     const card = createCard(result);
     // Ajout de notre nouvelle carte donc elle prends la class .active
@@ -41,4 +27,4 @@ addCard.addEventListener("click", () => {
     main.appendChild(card);
     // On affiche le tableau de toutes les cartes
     console.log(cardContent);
-})
+});
