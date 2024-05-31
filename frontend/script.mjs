@@ -1,24 +1,19 @@
 import createCard from "./assets/script/createCard.mjs";
 import createTodo from "./assets/script/createTodo.mjs";
 import getSavedCard from "./assets/script/getSavedCard.mjs";
-
-createCard("Groceries");
-//createTodo();
-const container = document.querySelector(".card > main > .left")
-
-const img = document.querySelector("img")
-
-img.addEventListener('click', () => {
-    createTodo(container);
-});
-
-
+import menuOption from "./assets/script/menuOption.mjs";
 
 const main = document.querySelector("main");
 const addCard = document.querySelector("div.add");
 const cardContent = [];
 
 getSavedCard(cardContent, main);
+const arrayOption = ["Thème", "Card Complèt", "Card en cours"];
+const option = document.querySelector("nav > img");
+option.addEventListener("click", () => {
+    menuOption(arrayOption);
+})
+
 
 addCard.addEventListener("click", () => {
     // Recupère le titre de la carte
