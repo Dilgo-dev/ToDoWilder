@@ -1,0 +1,102 @@
+:root {
+    --color-1: #949494;
+    --color-2: #3498db;
+    --color-3: #f1c40f;
+    --color-4: #9900ff;
+    --color-5: #2ecc71;
+    --color-6: #cc2e2e;
+}
+
+.radio-input {
+    background-color: #ffffff3d;
+    padding: 1rem;
+    border-radius: 20px;
+    display: flex;
+    width: 18rem;
+    box-shadow: 1px 8px 8px 4px rgba(0, 0, 0, 0.33);
+}
+
+.radio-input input[type=radio] {
+    display: none;
+}
+
+.radio-input label {
+    color: #333333;
+}
+
+.radio-input label span {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin: -1px 4px 0 0;
+    vertical-align: center;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid #ffffff8c;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    line-height: 44px;
+}
+
+.radio-input label span svg {
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.radio-input input[type=radio]:checked+label span svg {
+    opacity: 1;
+}
+
+.radio-wrapper[data-color="color-1"] label span {
+    background-color: var(--color-1);
+}
+
+.radio-wrapper[data-color="color-2"] label span {
+    background-color: var(--color-2);
+}
+
+.radio-wrapper[data-color="color-3"] label span {
+    background-color: var(--color-3);
+}
+
+.radio-wrapper[data-color="color-4"] label span {
+    background-color: var(--color-4);
+}
+
+.radio-wrapper[data-color="color-5"] label span {
+    background-color: var(--color-5);
+}
+
+.radio-wrapper[data-color="color-6"] label span {
+    background-color: var(--color-6);
+}
+
+.radio-input:has(input[type=radio]:checked) {
+    background-color: var(--color-1);
+}
+
+.radio-input:has(input[type=radio]#color-1:checked) {
+    background-color: var(--color-1);
+}
+
+.radio-input:has(input[type=radio]#color-2:checked) {
+    background-color: var(--color-2);
+}
+
+.radio-input:has(input[type=radio]#color-3:checked) {
+    background-color: var(--color-3);
+}
+
+.radio-input:has(input[type=radio]#color-4:checked) {
+    background-color: var(--color-4);
+}
+
+.radio-input:has(input[type=radio]#color-5:checked) {
+    background-color: var(--color-5);
+}
+
+.radio-input:has(input[type=radio]#color-6:checked) {
+    background-color: var(--color-6);
+}
