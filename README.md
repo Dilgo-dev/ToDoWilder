@@ -16,3 +16,4 @@
 | searchCard             | Benjamin           | 🌶️🌶️       | Search a card                                                      | (containerCard)  | [ ]  |
 | deleteCard             | Rosa               | 🌶️🌶️🌶️     | Supprimer une carte                                                | (card)           | [ ]  |
 | createSettingMenu      | Aïssatou && Rosa   | 🌶️🌶️🌶️     | Afficher le menu lors du clique sur les trois petits points        |                  | [ ]  |
+

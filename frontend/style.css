@@ -28,18 +28,26 @@ body {
 
 /* Card style */
 
-main {
+body>main {
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     position: relative;
 }
 
 .inactive {
-    position: absolute;
-    width: 100%;
-    z-index: -10;
-    transform: translateY(-20%);
+    height: 4.15rem;
+    overflow: hidden;
+}
+
+.inactive:hover {
+    height: 5.25rem;
+    overflow: hidden;
 }
 
 .active {
+    height: 18rem;
     z-index: 10;
 }
 
@@ -50,32 +58,33 @@ main {
     border-radius: 8px;
     background-color: var(--secondary-green, #e8fff3);
     padding: 0.5rem 1rem;
-    min-height: 18rem;
+    width: 20rem;
+    transition: height .3s ease;
 }
 
-.card > header {
+.card>header {
     display: flex;
     justify-content: space-between;
     color: var(--primary-green, #00a86d);
 }
 
-.card > header > .left > h2 {
+.card>header>.left>h2 {
     font-size: 2rem;
     font-weight: 600;
 }
 
-.card > main {
+.card>main {
     height: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-.card > main > .left > div {
+.card>main>.left>div {
     display: flex;
     gap: 0.5rem;
 }
 
-.card > main > .right {
+.card>main>.right {
     height: 100%;
     display: flex;
     align-items: flex-end;
