@@ -19,12 +19,11 @@ export default function createTodo(container) {
     // ajouter un barre input
     inputCheck.addEventListener("click", () => {
         if (inputCheck.checked) {
-            inputCheck.disabled = true;
             label.contentEditable = false;
             label.style.textDecoration = "line-through";
-            console.log(label);
+        } else {
+            label.contentEditable = true;
+            label.style.textDecoration = "none";
         }
     });
-
-
 }
