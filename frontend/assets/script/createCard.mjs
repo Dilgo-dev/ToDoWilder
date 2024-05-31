@@ -1,3 +1,5 @@
+import createTodo from "./createTodo.mjs";
+
 export default function createCard(title) {
     // Create the div with the class card
     const card = document.createElement("div");
@@ -21,7 +23,7 @@ export default function createCard(title) {
             event.preventDefault();
             titleElement.blur();
         }
-    })
+    });
     headerLeft.appendChild(titleElement);
 
     // Create parapraphe for the left header
@@ -31,7 +33,7 @@ export default function createCard(title) {
 
     // Create right header element
     const headerRight = document.createElement("div");
-    headerLeft.classList.add("right");
+    headerRight.classList.add("right");
     header.appendChild(headerRight);
 
     // Create the edit image
@@ -49,16 +51,19 @@ export default function createCard(title) {
     mainLeft.classList.add("left");
     main.appendChild(mainLeft);
 
+    // Create the container of the todo
     const containerInput = document.createElement("div");
-    const input = document.createElement("input");
-    input.type = "checkbox";
-    input.id = "input1";
-    containerInput.appendChild(input);
-    const label = document.createElement("label");
-    label.innerHTML = "Avocados";
-    label.setAttribute("for", "input1");
-    containerInput.appendChild(label);
-    mainLeft.appendChild(containerInput);
+    // Create the checkbox
+    const checkbox = document.createElement("input");
+    //checkbox.type = "checkbox";
+    //checkbox.id = "input1";
+    //containerInput.appendChild(checkbox);
+    // Create the label
+    //const label = document.createElement("label");
+    //label.innerHTML = "Avocados";
+    //label.setAttribute("for", "input1");
+    //containerInput.appendChild(label);
+    //mainLeft.appendChild(containerInput);
 
     // Create main right element
     const mainRight = document.createElement("div");
@@ -71,5 +76,9 @@ export default function createCard(title) {
     deleteImg.alt = "Delete button";
     mainRight.appendChild(deleteImg);
 
+    edit.addEventListener("click", () => {
+        if (card.className.includes("inactive")) return;
+        createTodo(mainLeft);
+    });
     return card;
 }

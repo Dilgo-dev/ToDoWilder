@@ -37,8 +37,12 @@ body>main {
 }
 
 .inactive {
-    height: 4.15rem;
+    height: 3.9rem;
     overflow: hidden;
+}
+
+.inactive > header > .right > img {
+	display: none;
 }
 
 .inactive:hover {
