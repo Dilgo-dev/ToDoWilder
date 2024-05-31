@@ -5,7 +5,7 @@ const main = document.querySelector("main");
 const addCard = document.querySelector("div.add");
 const cardContent = [];
 
-getSavedCard(cardContent);
+getSavedCard(cardContent, main);
 
 addCard.addEventListener("click", () => {
     // Recupère le titre de la carte
