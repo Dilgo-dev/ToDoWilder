@@ -1,5 +1,20 @@
 import createTodo from "./createTodo.mjs";
 
+export function updateCounter(card, counter, counterMaxInput) {
+    const paragraphe = card.querySelector("header > .left > p");
+    paragraphe.innerHTML = `${counter} of ${counterMaxInput} Tasks`;
+    return paragraphe;
+}
+
+export function getCounter(card) {
+    const paragraphe = card.querySelector("header > .left > p");
+    const paragrapheArray = paragraphe.innerHTML.split(" ");
+    return {
+        counterTodo: parseInt(paragrapheArray[0]),
+        counterMaxTodo: parseInt(paragrapheArray[2]),
+    };
+}
+
 export default function createCard(title) {
     // Create the div with the class card
     const card = document.createElement("div");
@@ -28,7 +43,9 @@ export default function createCard(title) {
 
     // Create parapraphe for the left header
     const paragraphe = document.createElement("p");
-    paragraphe.innerHTML = "0 of 0 Tasks";
+    let counterMaxInput = 0;
+    let counter = 0;
+    paragraphe.innerHTML = `${counter} of ${counterMaxInput} Tasks`;
     headerLeft.appendChild(paragraphe);
 
     // Create right header element
@@ -78,7 +95,9 @@ export default function createCard(title) {
 
     edit.addEventListener("click", () => {
         if (card.className.includes("inactive")) return;
-        createTodo(mainLeft);
+        const { counterTodo, counterMaxTodo } = getCounter(card);
+        updateCounter(card, counterTodo, counterMaxTodo + 1);
+        createTodo(mainLeft, card);
     });
     return card;
 }
