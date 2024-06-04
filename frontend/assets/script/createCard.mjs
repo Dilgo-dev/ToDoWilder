@@ -1,5 +1,20 @@
 import createTodo from "./createTodo.mjs";
 
+export function updateCounter(card, counter, counterMaxInput) {
+    const paragraphe = card.querySelector("header > .left > p");
+    paragraphe.innerHTML = `${counter} of ${counterMaxInput} Tasks`;
+    return paragraphe;
+}
+
+export function getCounter(card) {
+    const paragraphe = card.querySelector("header > .left > p");
+    const paragrapheArray = paragraphe.innerHTML.split(" ");
+    return {
+        counterTodo: parseInt(paragrapheArray[0]),
+        counterMaxTodo: parseInt(paragrapheArray[2]),
+    };
+}
+
 export default function createCard(title) {
     // Create the div with the class card
     const card = document.createElement("div");
@@ -28,7 +43,9 @@ export default function createCard(title) {
 
     // Create parapraphe for the left header
     const paragraphe = document.createElement("p");
-    paragraphe.innerHTML = "0 of 0 Tasks";
+    let counterMaxInput = 0;
+    let counter = 0;
+    paragraphe.innerHTML = `${counter} of ${counterMaxInput} Tasks`;
     headerLeft.appendChild(paragraphe);
 
     // Create right header element
@@ -41,6 +58,12 @@ export default function createCard(title) {
     edit.src = "./assets/icon/edit.svg";
     edit.alt = "Edit button";
     headerRight.appendChild(edit);
+
+    // Create the palette image
+    const palette = document.createElement("img");
+    palette.src = "./assets/icon/palette.svg";
+    palette.alt = "paletteButton";
+    headerRight.appendChild(palette);
 
     // Create main element
     const main = document.createElement("main");
@@ -70,15 +93,18 @@ export default function createCard(title) {
     mainRight.classList.add("right");
     main.appendChild(mainRight);
 
-    // Create the edit image
+    // Create the delete image
     const deleteImg = document.createElement("img");
     deleteImg.src = "./assets/icon/delete.svg";
     deleteImg.alt = "Delete button";
+    deleteImg.classList.add("delete-svg");
     mainRight.appendChild(deleteImg);
 
     edit.addEventListener("click", () => {
         if (card.className.includes("inactive")) return;
-        createTodo(mainLeft);
+        const { counterTodo, counterMaxTodo } = getCounter(card);
+        updateCounter(card, counterTodo, counterMaxTodo + 1);
+        createTodo(mainLeft, card);
     });
     return card;
 }
