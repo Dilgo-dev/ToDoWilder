@@ -29,6 +29,8 @@ addCard.addEventListener("click", () => {
     main.appendChild(card);
     // On affiche le tableau de toutes les cartes
     console.log(cardContent);
+
+    deleteCard(card);
 });
 
 //changeCard(main, cardContent, 0);
