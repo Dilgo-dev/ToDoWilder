@@ -16,7 +16,7 @@
     --secondary-purple: #c986ff83;
     --primary-green: #01915e;
     --secondary-green: #65ffaf8f;
-    --primary-red: #a80000;
+    --primary-red: #a81b1b;
     --secondary-red: #ff82828c;
 
     /* Color choice themes cards */
@@ -50,7 +50,7 @@ body {
     /* Background */
     margin: auto;
     overflow: auto;
-    background: white;
+    background: rgb(255, 255, 255);
     animation: gradient 24s ease infinite;
     background-size: 400% 400%;
     background-attachment: fixed;
@@ -58,7 +58,9 @@ body {
 
 /* Background */
 .wave {
-    background: linear-gradient(315deg, #0fe90749 3%, #24fd7e7e 38%, #00e5e97c 68%, #008cff77 98%);
+    /* background: linear-gradient(315deg, #0fe90749 3%, #24fd7e7e 38%, #00e5e97c 68%, #008cff77 98%); */
+    background: linear-gradient(315deg, #d36f357c 3%, #b931e27e 38%, #ff7f0877 68%, #6202fd49 98%);
+    /* background: linear-gradient(315deg, #00fff2a4 3%, #fc38387e 38%, #a1f4ff7c 68%, #ff000077 98%); */
     border-radius: 1000% 1000% 0 0;
     position: fixed;
     width: 200%;
@@ -175,6 +177,7 @@ body>main {
     height: 100%;
     display: flex;
     justify-content: space-between;
+    overflow: hidden;
 }
 
 .card>main>.left>div {
@@ -187,7 +190,11 @@ body>main {
     display: flex;
     align-items: flex-end;
     opacity: 0.1;
-    /* /!\ Un problème avec la poubelle le bouton est sur toute la hauteur et impossible de changer la couleur en dehors du fichier svg*/
+
+}
+
+.card>main>.right>img {
+    height: fit-content;
 }
 
 .card>main>.right:hover {
@@ -357,4 +364,66 @@ nav {
     transition-duration: .5s;
     transform: translate(10%);
     opacity: 1;
+}
+
+
+
+
+/*Responsive*/
+/* Styles généraux pour les plus petits iPhones */
+body {
+    font-size: 14px;
+    padding: 10px;
+}
+
+/* Mobiles moyens (min-width: 375px) */
+@media only screen and (min-width: 375px) {
+    body {
+        font-size: 16px;
+        padding: 15px;
+    }
+}
+
+/* Mobiles grands (min-width: 425px) */
+@media only screen and (min-width: 425px) {
+    body {
+        font-size: 18px;
+        padding: 20px;
+    }
+}
+
+/* Tablettes (min-width: 768px) */
+@media only screen and (min-width: 768px) {
+    body {
+        font-size: 20px;
+        padding: 25px;
+    }
+
+    .container {
+        width: 90%;
+        margin: auto;
+    }
+}
+
+/* PC (min-width: 1024px) */
+@media only screen and (min-width: 1024px) {
+    body {
+        font-size: 22px;
+        padding: 30px;
+    }
+
+    .container {
+        width: 80%;
+        margin: auto;
+    }
+
+    .sidebar {
+        width: 25%;
+        float: left;
+    }
+
+    .main-content {
+        width: 70%;
+        float: right;
+    }
 }
