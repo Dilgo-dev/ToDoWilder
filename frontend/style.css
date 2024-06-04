@@ -190,10 +190,11 @@ body>main {
     display: flex;
     align-items: flex-end;
     opacity: 0.1;
-    /* /!\ Un problème avec la poubelle le bouton est sur toute la hauteur et impossible de changer la couleur en dehors du fichier svg*/
+
 }
+
 .card>main>.right>img {
-height: fit-content;
+    height: fit-content;
 }
 
 .card>main>.right:hover {
