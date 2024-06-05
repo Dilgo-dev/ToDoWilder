@@ -1,4 +1,5 @@
 import createTodo from "./createTodo.mjs";
+import buttonColor from "./buttonscolor.mjs";
 
 export function updateCounter(card, counter, counterMaxInput) {
     const paragraphe = card.querySelector("header > .left > p");
@@ -64,6 +65,10 @@ export default function createCard(title) {
     palette.src = "./assets/icon/palette.svg";
     palette.alt = "paletteButton";
     headerRight.appendChild(palette);
+    palette.addEventListener("click", () => {
+        buttonColor (card)
+    });
+    
 
     // Create main element
     const main = document.createElement("main");
