@@ -1,15 +1,10 @@
-/* Function to delete the selected card*/
-const deleteCard = () => {
-    // select the bin on the active card 
-    const binRemove = main.querySelector(".right > img");
-    // add event listener
-    binRemove.addEventListener("click", () => {
-        const deleteCard = main.querySelector(".active");
-        main.removeChild(deleteCard);
-        console.log(main);
-    });
+
+import nextCard from "./nextCard.mjs";
+// fonction pour supprimer la carte active quand on clic sur l'image classe ".delete-svg"
+export default function deleteCard(cardContainer) {
+    if (cardContainer.classList.contains("active")) {
+        cardContainer.remove();
+    };
 
 }
 
-// last step - call the function
-deleteCard();
