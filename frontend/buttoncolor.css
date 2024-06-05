@@ -1,0 +1,118 @@
+:root {
+    --color-1: #949494;
+    --color-2: #0088d6;
+    --color-3: #d6da00;
+    --color-4: #8800e2;
+    --color-5: #00a86d;
+    --color-6: #a80000;
+}
+
+#menu {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -75px 0 0 -75px;
+    list-style: none;
+    font-size: 200%;
+}
+
+.menu-button {
+    width: 10rem;
+    height: 10rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    background: #908888;
+    /* A modifier pour la une transparence du bouton palette*/
+    background-size: 100%;
+    overflow: hidden;
+    text-decoration: none;
+    border: #ffffff 4px solid;
+    content: url(./palette.svg);
+    box-shadow: #908888 0 0 5px 5px;
+}
+
+#menu:not(:target)>a:first-of-type,
+#menu:target>a:last-of-type {
+    opacity: 1;
+    z-index: 1;
+}
+
+#menu:not(:target)>.icon-plus:before,
+#menu:target>.icon-minus:before {
+    opacity: 0.2;
+}
+
+.menu-item {
+    width: 8rem;
+    height: 8rem;
+    position: absolute;
+    left: 50%;
+    line-height: 5px;
+    top: 50%;
+    margin: -50px 0 0 -50px;
+    border-radius: 50%;
+    transform: translate(0px, 0px);
+    transition: transform 500ms;
+    z-index: -2;
+    transition: .5s;
+    border: #fff 3px solid;
+    box-shadow: 0 5px 10px black;
+}
+
+.menu-item:hover {
+    opacity: 0.8;
+}
+
+#menu:target>.menu-item:nth-child(3) {
+    transform: rotate(70deg) translateY(-185px) rotate(300deg);
+    transition-delay: 0s;
+    background-color: var(--color-1);
+}
+
+#menu:target>.menu-item:nth-child(4) {
+    transform: rotate(25deg) translateY(-185px) rotate(-20deg);
+    transition-delay: 0.1s;
+    background-color: var(--color-2);
+
+}
+
+#menu:target>.menu-item:nth-child(5) {
+    transform: rotate(-18deg) translateY(-195px) rotate(20deg);
+    transition-delay: 0.2s;
+    background-color: var(--color-5);
+
+}
+
+#menu:target>.menu-item:nth-child(6) {
+    transform: rotate(-60deg) translateY(-205px) rotate(60deg);
+    transition-delay: 0.3s;
+    background-color: var(--color-3);
+
+}
+
+#menu:target>.menu-item:nth-child(7) {
+    transform: rotate(-100deg) translateY(-205px) rotate(100deg);
+    transition-delay: 0.4s;
+    background-color: var(--color-4);
+
+}
+
+#menu:target>.menu-item:nth-child(8) {
+    transform: rotate(-141deg) translateY(-195px) rotate(100deg);
+    transition-delay: 0.4s;
+    background-color: var(--color-6);
+}
+
+#menu:target>.menu-item:nth-child(9) {
+    transform: rotate(-215deg) translateY(-185px) rotate(215deg);
+    transition-delay: 0.5s;
+    background-color: rgb(195, 195, 195);
+    border: rgb(73, 73, 73) 3px solid;
+    content: url("paintdefault.svg");
+
+}
