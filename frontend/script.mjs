@@ -1,6 +1,7 @@
 import nextCard, { prevCard } from "./assets/script/nextCard.mjs";
 import createCard from "./assets/script/createCard.mjs";
 import getSavedCard from "./assets/script/getSavedCard.mjs";
+import deleteCard from "./assets/script/deleteCard.mjs";
 
 const main = document.querySelector("main");
 const addCard = document.querySelector("div.add");
@@ -28,6 +29,8 @@ addCard.addEventListener("click", () => {
     main.appendChild(card);
     // On affiche le tableau de toutes les cartes
     console.log(cardContent);
+
+    deleteCard(card);
 });
 
 //changeCard(main, cardContent, 0);
@@ -46,3 +49,5 @@ main.addEventListener("wheel", (event) => {
     }
     event.preventDefault();
 });
+
+
