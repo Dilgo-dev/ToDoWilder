@@ -1,4 +1,0 @@
-
-hoverDelete();
-hoverDelete(deletTodo);
-

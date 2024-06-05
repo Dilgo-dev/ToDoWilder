@@ -103,7 +103,6 @@ export default function createCard(title) {
 
     // add an event to delete image
     deleteImg.addEventListener("click", () => {
-        alert("clic");
         deleteCard(card);
     });
 
