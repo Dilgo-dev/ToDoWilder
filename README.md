@@ -2,19 +2,21 @@
 
 ## Répartition des tâches
 
-| Fonction               | Développeur        | Difficulté | Description                                                        |
-| ---------------------- | ------------------ | ---------- | ------------------------------------------------------------------ |
-| createCard             | Benjamin           | 🌶️         | Créer une carte                                                    |
-| feat: createCard color | Benjamin           | 🌶️🌶️       | Créer une carte                                                    |
-| crossedInput           | Aïssatou           | 🌶️         | Barrer l'input                                                     |
-| createInput            | Aïssatou           | 🌶️🌶️       | Créer un todo et ajouter 1 au compteur de tâche                    |
-| hoverInput             | Rosa               | 🌶️🌶️       | Créer la corbeille todo quand "hover"                              |
-| deleteInput            | Damien && Rosa     | 🌶️         | fonction delete todo et diminuer 1 au compteur de tâche (1 lignes) |
-| addCard                | Damien && Benjamin | 🌶️🌶️🌶️🌶️   | Gestion des creation de carte                                      |
-| changeCard             | Benjamin           | 🌶️🌶️       | Gestion des creation de carte                                      |
-| deleteCard             | Rosa               | 🌶️🌶️🌶️     | Supprimer une carte                                                |
-| createSettingMenu      | Aïssatou && Rosa   | 🌶️🌶️🌶️     | Afficher le menu lors du clique sur les trois petits points        |
+| Fonction               | Développeur        | Difficulté | Description                                                        | params           | Done |
+| ---------------------- | ------------------ | ---------- | ------------------------------------------------------------------ | ---------------- | ---- |
+| createCard             | Benjamin           | 🌶️         | Créer une carte                                                    |                  | [x]  |
+| feat: createCard color | Benjamin           | 🌶️🌶️       | Créer une carte                                                    |                  | [x]  |
+| crossedTodo            | Aïssatou           | 🌶️         | Barrer l'input                                                     | (input)          | [ ]  |
+| createTodo             | Aïssatou           | 🌶️🌶️       | Créer un todo et ajouter 1 au compteur de tâche                    | (container)      | [ ]  |
+| hoverTodo              | Rosa               | 🌶️🌶️       | Créer la corbeille todo quand "hover"                              | (containerInput) | [x]  |
+| deleteTodo             | Damien && Rosa     | 🌶️         | fonction delete todo et diminuer 1 au compteur de tâche (1 lignes) | (containerInput) | [ ]  |
+| addCard                | Damien && Benjamin | 🌶️🌶️🌶️🌶️   | Gestion des creation de carte                                      | (containerCard)  | [ ]  |
+| nextCard               | Benjamin           | 🌶️🌶️       | Change to the next card                                            | (containerCard)  | [ ]  |
+| prevCard               | Benjamin           | 🌶️🌶️       | Change to the previous card                                        | (containerCard)  | [ ]  |
+| searchCard             | Benjamin           | 🌶️🌶️       | Search a card                                                      | (containerCard)  | [ ]  |
+| deleteCard             | Rosa               | 🌶️🌶️🌶️     | Supprimer une carte                                                | (card)           | [x]  |
+| Modif Css - background      | Damien   | 🌶️🌶️     | Ajouter différent backgrounds ainsi que la fonction de changement        |                  | [ ]  |
+| Modif Css - Bouton      | Damien   | 🌶️🌶️     | Ajouter différents boutons ainsi que la fonction de changement         |                  | [ ]  |
+| Modif Css - Fonctionnalité      | Damien ??  | 🌶️🌶️     | Ajouter différente fonctionnalité esthétique         |                  | [ ]  |
 
-.js
-.cjs
-.mjs
+
