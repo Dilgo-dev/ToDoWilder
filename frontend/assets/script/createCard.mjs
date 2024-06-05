@@ -1,4 +1,5 @@
 import createTodo from "./createTodo.mjs";
+import deleteCard from "./deleteCard.mjs";
 
 export function updateCounter(card, counter, counterMaxInput) {
     const paragraphe = card.querySelector("header > .left > p");
@@ -59,6 +60,12 @@ export default function createCard(title) {
     edit.alt = "Edit button";
     headerRight.appendChild(edit);
 
+    // Create the palette image
+    const palette = document.createElement("img");
+    palette.src = "./assets/icon/palette.svg";
+    palette.alt = "paletteButton";
+    headerRight.appendChild(palette);
+
     // Create main element
     const main = document.createElement("main");
     card.appendChild(main);
@@ -87,11 +94,18 @@ export default function createCard(title) {
     mainRight.classList.add("right");
     main.appendChild(mainRight);
 
-    // Create the edit image
+    // Create the delete image
     const deleteImg = document.createElement("img");
     deleteImg.src = "./assets/icon/delete.svg";
     deleteImg.alt = "Delete button";
+    deleteImg.classList.add("delete-svg");
     mainRight.appendChild(deleteImg);
+
+    // add an event to delete image
+    deleteImg.addEventListener("click", () => {
+        alert("clic");
+        deleteCard(card);
+    });
 
     edit.addEventListener("click", () => {
         if (card.className.includes("inactive")) return;
