@@ -50,4 +50,3 @@ main.addEventListener("wheel", (event) => {
     event.preventDefault();
 });
 
-
