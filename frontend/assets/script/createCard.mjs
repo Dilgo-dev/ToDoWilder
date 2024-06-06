@@ -1,4 +1,6 @@
+import { cardContent, saveTodos } from "../../script.mjs";
 import createTodo from "./createTodo.mjs";
+import handleMouseDown from "./handleMouseDown.mjs";
 
 export function updateCounter(card, counter, counterMaxInput) {
     const paragraphe = card.querySelector("header > .left > p");
@@ -37,6 +39,17 @@ export default function createCard(title) {
         if (event.key === "Enter") {
             event.preventDefault();
             titleElement.blur();
+            saveTodos();
+        } else if (
+            titleElement.textContent.length > 12 &&
+            event.key !== "Backspace"
+        ) {
+            event.preventDefault();
+        } else {
+            const element = cardContent.find(
+                (element) => element.element === card
+            );
+            element.title = titleElement.textContent;
         }
     });
     headerLeft.appendChild(titleElement);
@@ -74,20 +87,6 @@ export default function createCard(title) {
     mainLeft.classList.add("left");
     main.appendChild(mainLeft);
 
-    // Create the container of the todo
-    const containerInput = document.createElement("div");
-    // Create the checkbox
-    const checkbox = document.createElement("input");
-    //checkbox.type = "checkbox";
-    //checkbox.id = "input1";
-    //containerInput.appendChild(checkbox);
-    // Create the label
-    //const label = document.createElement("label");
-    //label.innerHTML = "Avocados";
-    //label.setAttribute("for", "input1");
-    //containerInput.appendChild(label);
-    //mainLeft.appendChild(containerInput);
-
     // Create main right element
     const mainRight = document.createElement("div");
     mainRight.classList.add("right");
@@ -106,5 +105,6 @@ export default function createCard(title) {
         updateCounter(card, counterTodo, counterMaxTodo + 1);
         createTodo(mainLeft, card);
     });
+    card.addEventListener('mousedown', (e) => handleMouseDown(e, card));
     return card;
 }
