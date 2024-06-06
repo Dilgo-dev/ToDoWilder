@@ -131,7 +131,6 @@ body>main {
 
 .inactive {
     height: 3.9rem;
-    overflow: hidden;
 }
 
 .inactive>header>.right>img {
@@ -140,7 +139,6 @@ body>main {
 
 .inactive:hover {
     height: 5.25rem;
-    overflow: hidden;
 }
 
 .active {
@@ -296,7 +294,7 @@ body {
         padding: 20px;
     }
 }
-4
+
 /* Tablettes (min-width: 768px) */
 @media only screen and (min-width: 768px) {
     body {

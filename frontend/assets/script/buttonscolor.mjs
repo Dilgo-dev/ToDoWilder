@@ -1,140 +1,75 @@
-export default function buttonColor(card) {
-  //ETAPE 0 - rentrenscrice le html en js
+export default function buttonsColor(container, card) {
   const tabColors = [
     {
       name: "--color-1",
-      color: "#949494"
+      light: "#ffcccc", // Light color for background
+      dark: "#cc0000"  // Dark color for header
     },
     {
       name: "--color-2",
-      color: "#0088d6"
+      light: "#cceeff",
+      dark: "#005580"
     },
     {
       name: "--color-3",
-      color: "#d6da00"
+      light: "#ffffcc",
+      dark: "#cccc00"
     },
     {
       name: "--color-4",
-      color: "#8800e2"
+      light: "#e6ccff",
+      dark: "#660099"
     },
     {
       name: "--color-5",
-      color: "#00a86d"
+      light: "#ccffcc",
+      dark: "#006600"
     },
     {
       name: "--color-6",
-      color: "#a80000"
+      light: "#ffcccc",
+      dark: "#990000"
     },
     {
       name: "--color-7",
-      color: "#dddddd7c"
-    },
+      light: "#dddddd",
+      dark: "#666666"
+    }
+  ];
 
-  ]
-  const mainColor = document.querySelector('main');
   const divColor = document.createElement('div');
-
   divColor.classList.add('containColor');
-  mainColor.appendChild(divColor);
+  container.appendChild(divColor);
+
   const ulColor = document.createElement('ul');
-  ulColor.id = "menu";
+  ulColor.classList.add("menu");
   divColor.appendChild(ulColor);
-  const aMenucolorPlus = document.createElement('a')
+
+  const aMenucolorPlus = document.createElement('a');
   aMenucolorPlus.classList.add('menu-button', 'icon-plus');
-  aMenucolorPlus.id = "open-menu";
-  aMenucolorPlus.href = "#menu";
+  aMenucolorPlus.href = "#";
   ulColor.appendChild(aMenucolorPlus);
-  const aMenucolorMinus = document.createElement('a')
-  aMenucolorMinus.classList.add("menu-button", "icon-minus");
-  aMenucolorMinus.href = "#0"
-  ulColor.appendChild(aMenucolorMinus);
 
   tabColors.forEach(tabColor => {
-    //console.log("nom: " + tabColor.name + " couleur: " + tabColor.color);
     const liColor = document.createElement('li');
     liColor.classList.add('menu-item');
+    liColor.style.backgroundColor = tabColor.light;
+    liColor.dataset.light = tabColor.light;
+    liColor.dataset.dark = tabColor.dark;
     ulColor.appendChild(liColor);
-    const aMenuitemColor = document.createElement('a');
-    aMenuitemColor.href = "#menu";
-    liColor.appendChild(aMenuitemColor);
-    const divMenuitemColor = document.createElement('div')
-    divMenuitemColor.dataset.color = tabColor.color;
-    aMenuitemColor.appendChild(divMenuitemColor);
-  })
 
+    liColor.addEventListener('click', (event) => {
+      card.style.backgroundColor = tabColor.light;
+      const header = card.querySelector('header');
+      card.querySelector("header > .right > img").style.fill = tabColor.dark;
+      header.style.color = tabColor.dark;
+      card.dataset.lightColor = tabColor.light; // store the light color in the dataset
+      card.dataset.darkColor = tabColor.dark; // store the dark color in the dataset
+    });
+  });
 
-
-
-
-  console.log(mainColor);
-
-
-
-
-  // --------------
-
-
-
-
-  //ETAPE 1 - Tableau de couleur 
-  // const colors = [""]
-  // console.log("CA MARCHE");
-  //ETAPE 2 - Deploiement des couleurs (quand tu click ca doit faire apparaitre toutes les couleurs)
-
-
-  //ETAPE 3 - La selection d'une couleur (quand je click sur la couleur souhaiter j'applique la couleur sur la carte active)
-
-
-
-
-
-
-
-
-
+  aMenucolorPlus.addEventListener('click', (event) => {
+    event.preventDefault();
+    ulColor.classList.toggle('open');
+  });
 }
-
-
-
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     const colors = ['color-1', 'color-2', 'color-3', 'color-4', 'color-5', 'color-6'];
-//     const container = document.querySelector('.radio-input');
-
-//     colors.forEach(color => {
-//         const wrapper = document.createElement('div');
-//         wrapper.className = 'radio-wrapper';
-//         wrapper.setAttribute('data-color', color);
-
-//         const input = document.createElement('input');
-//         input.type = 'radio';
-//         input.name = 'color';
-//         input.id = color;
-//         input.value = color;
-//         if (color === 'color-1') {
-//             input.checked = true;
-//         }
-
-//         const label = document.createElement('label');
-//         label.setAttribute('for', color);
-
-//         const span = document.createElement('span');
-//         const svg = `
-//         <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-//           <g stroke-width="0"></g>
-//           <g stroke-linejoin="round" stroke-linecap="round"></g>
-//           <g id="Interface / Check">
-//             <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#ffffff" d="M6 12L10.2426 16.2426L18.727 7.75732" id="Vector"></path>
-//           </g>
-//         </svg>
-//       `;
-//         span.innerHTML = svg;
-
-//         label.appendChild(span);
-//         wrapper.appendChild(input);
-//         wrapper.appendChild(label);
-//         container.appendChild(wrapper);
-//     });
-// });
-
-// OBSOLETE, commenter pour inspiration!!!!!!!!!!!!!!!!!!!!!!!
