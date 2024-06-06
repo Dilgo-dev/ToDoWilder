@@ -20,7 +20,7 @@ const isExistTitle = (newTitle) => {
 
 export function random(max) { return Math.floor(Math.random() * max)};
 
-export const saveTodos = () => {console.log("save ! "); localStorage.setItem("todos", JSON.stringify(cardContent)) };
+export const saveTodos = () => { localStorage.setItem("todos", JSON.stringify(cardContent)) };
 
 addCard.addEventListener("click", () => {
     // Créer la carte avec le titre
