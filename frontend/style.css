@@ -122,11 +122,9 @@ body {
 /* Card style */
 
 body>main {
-
     display: flex;
     align-items: center;
     flex-direction: column;
-    position: relative;
 }
 
 .inactive {
@@ -203,6 +201,31 @@ body>main {
     cursor: pointer;
 }
 
+@media (min-width: 1024px) {
+body>main {
+    display: block;
+}
+
+.card {
+    cursor: grab;
+    position: absolute;
+    transition: height 0s ease;
+}
+
+.card:active {
+    cursor: grabbing;
+}
+.inactive>header>.right>img {
+    display: block;
+}
+
+.inactive {
+    height: 18rem;
+}
+.inactive:hover {
+    height: 18rem;
+}
+}
 
 /* Color themes cards */
 .radio-input {
