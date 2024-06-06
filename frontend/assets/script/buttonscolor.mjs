@@ -1,39 +1,75 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const colors = ['color-1', 'color-2', 'color-3', 'color-4', 'color-5', 'color-6'];
-    const container = document.querySelector('.radio-input');
+export default function buttonsColor(container, card) {
+  const tabColors = [
+    {
+      name: "--color-1",
+      light: "#ffcccc", // Light color for background
+      dark: "#cc0000"  // Dark color for header
+    },
+    {
+      name: "--color-2",
+      light: "#cceeff",
+      dark: "#005580"
+    },
+    {
+      name: "--color-3",
+      light: "#ffffcc",
+      dark: "#cccc00"
+    },
+    {
+      name: "--color-4",
+      light: "#e6ccff",
+      dark: "#660099"
+    },
+    {
+      name: "--color-5",
+      light: "#ccffcc",
+      dark: "#006600"
+    },
+    {
+      name: "--color-6",
+      light: "#ffcccc",
+      dark: "#990000"
+    },
+    {
+      name: "--color-7",
+      light: "#dddddd",
+      dark: "#666666"
+    }
+  ];
 
-    colors.forEach(color => {
-        const wrapper = document.createElement('div');
-        wrapper.className = 'radio-wrapper';
-        wrapper.setAttribute('data-color', color);
+  const divColor = document.createElement('div');
+  divColor.classList.add('containColor');
+  container.appendChild(divColor);
 
-        const input = document.createElement('input');
-        input.type = 'radio';
-        input.name = 'color';
-        input.id = color;
-        input.value = color;
-        if (color === 'color-1') {
-            input.checked = true;
-        }
+  const ulColor = document.createElement('ul');
+  ulColor.classList.add("menu");
+  divColor.appendChild(ulColor);
 
-        const label = document.createElement('label');
-        label.setAttribute('for', color);
+  const aMenucolorPlus = document.createElement('a');
+  aMenucolorPlus.classList.add('menu-button', 'icon-plus');
+  aMenucolorPlus.href = "#";
+  ulColor.appendChild(aMenucolorPlus);
 
-        const span = document.createElement('span');
-        const svg = `
-        <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-          <g stroke-width="0"></g>
-          <g stroke-linejoin="round" stroke-linecap="round"></g>
-          <g id="Interface / Check">
-            <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="#ffffff" d="M6 12L10.2426 16.2426L18.727 7.75732" id="Vector"></path>
-          </g>
-        </svg>
-      `;
-        span.innerHTML = svg;
+  tabColors.forEach(tabColor => {
+    const liColor = document.createElement('li');
+    liColor.classList.add('menu-item');
+    liColor.style.backgroundColor = tabColor.light;
+    liColor.dataset.light = tabColor.light;
+    liColor.dataset.dark = tabColor.dark;
+    ulColor.appendChild(liColor);
 
-        label.appendChild(span);
-        wrapper.appendChild(input);
-        wrapper.appendChild(label);
-        container.appendChild(wrapper);
+    liColor.addEventListener('click', (event) => {
+      card.style.backgroundColor = tabColor.light;
+      const header = card.querySelector('header');
+      card.querySelector("header > .right > img").style.fill = tabColor.dark;
+      header.style.color = tabColor.dark;
+      card.dataset.lightColor = tabColor.light; // store the light color in the dataset
+      card.dataset.darkColor = tabColor.dark; // store the dark color in the dataset
     });
-});
+  });
+
+  aMenucolorPlus.addEventListener('click', (event) => {
+    event.preventDefault();
+    ulColor.classList.toggle('open');
+  });
+}
