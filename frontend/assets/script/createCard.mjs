@@ -1,5 +1,9 @@
 import createTodo from "./createTodo.mjs";
+
 import buttonsColor from "./buttonscolor.mjs";
+
+import deleteCard from "./deleteCard.mjs";
+
 
 export function updateCounter(card, counter, counterMaxInput) {
     const paragraphe = card.querySelector("header > .left > p");
@@ -71,6 +75,11 @@ export default function createCard(title) {
     deleteImg.alt = "Delete button";
     deleteImg.classList.add("delete-svg");
     mainRight.appendChild(deleteImg);
+
+    // add an event to delete image
+    deleteImg.addEventListener("click", () => {
+        deleteCard(card);
+    });
 
     edit.addEventListener("click", () => {
         if (card.classList.contains("inactive")) return;
