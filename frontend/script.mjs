@@ -4,15 +4,27 @@ import getSavedCard from "./assets/script/getSavedCard.mjs";
 
 const main = document.querySelector("main");
 const addCard = document.querySelector("div.add");
-const cardContent = [];
+export const cardContent = [];
 
 getSavedCard(cardContent, main);
 
+const isExistTitle = (newTitle) => {
+    const cards = document.querySelectorAll(".card");
+
+    for (const card of cards) {
+        const title = card.querySelector("header > .left > h2").textContent;
+        if (title === newTitle) return true;
+    }
+    return false;
+}
+
+export function random(max) { return Math.floor(Math.random() * max)};
+
+export const saveTodos = () => {console.log("save ! "); localStorage.setItem("todos", JSON.stringify(cardContent)) };
+
 addCard.addEventListener("click", () => {
-    // Recupère le titre de la carte
-    const result = prompt("Titre de la nouvelle carte");
     // Créer la carte avec le titre
-    const card = createCard(result);
+    const card = createCard("");
     // Ajout de notre nouvelle carte donc elle prends la class .active
     card.classList.add("active");
 
@@ -22,12 +34,14 @@ addCard.addEventListener("click", () => {
         div.element.classList.add("inactive");
     }
     // Push la nouvelle carte dans le tableau
-    cardContent.push({ title: result, element: card });
-    localStorage.setItem("todos", JSON.stringify(cardContent));
+    card.style.top = random(window.screen.width) + "px";
+    card.style.left = random(window.screen.height) + "px";
+
     // On actualise le dom avec la nouvelle carte
     main.appendChild(card);
-    // On affiche le tableau de toutes les cartes
-    console.log(cardContent);
+    card.querySelector("header > .left > h2").focus();
+    cardContent.push({ title: result, element: card , position: {left: 0, top: 0}});
+    saveTodos();
 });
 
 //changeCard(main, cardContent, 0);
