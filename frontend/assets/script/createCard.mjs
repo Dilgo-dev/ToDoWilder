@@ -2,6 +2,11 @@ import { cardContent, saveTodos } from "../../script.mjs";
 import createTodo from "./createTodo.mjs";
 import handleMouseDown from "./handleMouseDown.mjs";
 
+import buttonsColor from "./buttonscolor.mjs";
+
+import deleteCard from "./deleteCard.mjs";
+
+
 export function updateCounter(card, counter, counterMaxInput) {
     const paragraphe = card.querySelector("header > .left > p");
     paragraphe.innerHTML = `${counter} of ${counterMaxInput} Tasks`;
@@ -18,20 +23,16 @@ export function getCounter(card) {
 }
 
 export default function createCard(title) {
-    // Create the div with the class card
     const card = document.createElement("div");
     card.classList.add("card");
 
-    // Create the header element
     const header = document.createElement("header");
     card.appendChild(header);
 
-    // Create left header element
     const headerLeft = document.createElement("div");
     headerLeft.classList.add("left");
     header.appendChild(headerLeft);
 
-    // Create title for the left header
     const titleElement = document.createElement("h2");
     titleElement.innerHTML = title;
     titleElement.contentEditable = true;
@@ -54,35 +55,26 @@ export default function createCard(title) {
     });
     headerLeft.appendChild(titleElement);
 
-    // Create parapraphe for the left header
     const paragraphe = document.createElement("p");
     let counterMaxInput = 0;
     let counter = 0;
     paragraphe.innerHTML = `${counter} of ${counterMaxInput} Tasks`;
     headerLeft.appendChild(paragraphe);
 
-    // Create right header element
     const headerRight = document.createElement("div");
     headerRight.classList.add("right");
     header.appendChild(headerRight);
 
-    // Create the edit image
     const edit = document.createElement("img");
     edit.src = "./assets/icon/edit.svg";
     edit.alt = "Edit button";
     headerRight.appendChild(edit);
 
-    // Create the palette image
-    const palette = document.createElement("img");
-    palette.src = "./assets/icon/palette.svg";
-    palette.alt = "paletteButton";
-    headerRight.appendChild(palette);
+    buttonsColor(headerRight, card);
 
-    // Create main element
     const main = document.createElement("main");
     card.appendChild(main);
 
-    // Create main left element
     const mainLeft = document.createElement("div");
     mainLeft.classList.add("left");
     main.appendChild(mainLeft);
@@ -92,19 +84,33 @@ export default function createCard(title) {
     mainRight.classList.add("right");
     main.appendChild(mainRight);
 
-    // Create the delete image
     const deleteImg = document.createElement("img");
     deleteImg.src = "./assets/icon/delete.svg";
     deleteImg.alt = "Delete button";
     deleteImg.classList.add("delete-svg");
     mainRight.appendChild(deleteImg);
 
+    // add an event to delete image
+    deleteImg.addEventListener("click", () => {
+        deleteCard(card);
+    });
+
     edit.addEventListener("click", () => {
-        if (card.className.includes("inactive")) return;
+        if (card.classList.contains("inactive")) return;
         const { counterTodo, counterMaxTodo } = getCounter(card);
         updateCounter(card, counterTodo, counterMaxTodo + 1);
         createTodo(mainLeft, card);
     });
     card.addEventListener('mousedown', (e) => handleMouseDown(e, card));
+
+    // Restore color when card becomes inactive
+    card.addEventListener("transitionend", () => {
+        if (card.classList.contains("inactive")) {
+            card.style.backgroundColor = card.dataset.lightColor;
+            const header = card.querySelector('header');
+            header.style.backgroundColor = card.dataset.darkColor;
+        }
+    });
+
     return card;
 }
