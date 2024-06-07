@@ -3,6 +3,8 @@ import createCard from "./assets/script/createCard.mjs";
 import createTodo from "./assets/script/createTodo.mjs";
 import getSavedCard from "./assets/script/getSavedCard.mjs";
 import menuOption from "./assets/script/menuOption.mjs";
+import changebackground from "./assets/script/changebackground.mjs";
+import createTodo from "./assets/script/createTodo.mjs";
 
 const main = document.querySelector("main");
 const addCard = document.querySelector("div.add");
@@ -14,6 +16,7 @@ const option = document.querySelector("nav > img");
 option.addEventListener("click", () => {
     menuOption(arrayOption);
 })
+
 
 
 addCard.addEventListener("click", () => {
@@ -36,9 +39,12 @@ addCard.addEventListener("click", () => {
     main.appendChild(card);
     // On affiche le tableau de toutes les cartes
     console.log(cardContent);
+
+    deleteCard(card);
 });
 
 //changeCard(main, cardContent, 0);
+changebackground();
 
 document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowUp") {
@@ -54,4 +60,3 @@ main.addEventListener("wheel", (event) => {
     }
     event.preventDefault();
 });
-

@@ -1,4 +1,5 @@
 import { getCounter, updateCounter } from "./createCard.mjs";
+import hoverDelete from "./hoverTodo.mjs";
 
 export default function createTodo(container, card) {
     const div = document.createElement("div");
@@ -9,12 +10,14 @@ export default function createTodo(container, card) {
     const label = document.createElement("label");
     label.textContent = "New Todo";
     label.contentEditable = true;
+    hoverDelete(label, div);
     div.appendChild(label);
     label.addEventListener("keydown", (event) => {
         if (event.key === "Enter") {
             label.blur();
         }
     });
+    console.log(label);
 
     label.focus();
 
@@ -32,3 +35,4 @@ export default function createTodo(container, card) {
         }
     });
 }
+
