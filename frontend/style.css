@@ -184,7 +184,6 @@ body>main {
     display: flex;
     align-items: flex-end;
     opacity: 0.1;
-}
 
 .card>main>.right>img {
     height: fit-content;
