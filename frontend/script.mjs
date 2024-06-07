@@ -1,13 +1,14 @@
 import nextCard, { prevCard } from "./assets/script/nextCard.mjs";
 import createCard from "./assets/script/createCard.mjs";
 import getSavedCard from "./assets/script/getSavedCard.mjs";
-// import changebackground from "./assets/script/changebackground.mjs";
+import changebackground from "./assets/script/changebackground.mjs";
 
 const main = document.querySelector("main");
 const addCard = document.querySelector("div.add");
 const cardContent = [];
 
 getSavedCard(cardContent, main);
+
 
 addCard.addEventListener("click", () => {
     // Recupère le titre de la carte
@@ -32,6 +33,7 @@ addCard.addEventListener("click", () => {
 });
 
 //changeCard(main, cardContent, 0);
+changebackground();
 
 document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowUp") {

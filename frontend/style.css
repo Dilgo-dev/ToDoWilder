@@ -58,13 +58,7 @@ body {
 
 /* Background */
 .wave {
-    /* background: linear-gradient(315deg, #0fe90749 3%, #24fd7e7e 38%, #00e5e97c 68%, #008cff77 98%); */
-    /* background: linear-gradient(315deg, #d36f357c 3%, #b931e27e 38%, #ff7f0877 68%, #6202fd49 98%); */
-    /* background: linear-gradient(315deg, #00fff2a4 3%, #fc38387e 38%, #a1f4ff7c 68%, #ff000077 98%); */
-    background: linear-gradient(315deg, #f1ef547c 3%, #ff39647e 38%, #ffe60077 68%, #ff004049 98%);
-    /* background: linear-gradient(315deg, #4cffe17c 3%, #3988ff7e 38%, #0400ff77 68%, #4200be49 98%); */
-    /* background: linear-gradient(315deg, #f5a7ff7c 3%, #d2bcd47e 38%, #d35eeb77 68%, #f2c9f3c0 98%); */
-
+    background: linear-gradient(315deg, #0fe90749 3%, #24fd7e7e 38%, #00e5e97c 68%, #008cff77 98%);
     border-radius: 1000% 1000% 0 0;
     position: fixed;
     width: 200%;
@@ -359,13 +353,14 @@ body {
 
 .menu-open {
     display: none;
+    z-index: 501;
 }
 
 .menu-back {
     left: 50%;
     bottom: 2rem;
     opacity: 0;
-
+    z-index: 200;
 }
 
 .menu-back:hover {
@@ -406,10 +401,11 @@ body {
 .menu-back:nth-child(8) {
     -webkit-transition-duration: 180ms;
     transition-duration: 180ms;
+
 }
 
 .menu-open-button {
-    z-index: 2;
+    z-index: 500;
     cursor: pointer;
     box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
     content: url(./assets/icon/background.svg);
