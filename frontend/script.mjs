@@ -4,7 +4,6 @@ import createTodo from "./assets/script/createTodo.mjs";
 import getSavedCard from "./assets/script/getSavedCard.mjs";
 import menuOption from "./assets/script/menuOption.mjs";
 import changebackground from "./assets/script/changebackground.mjs";
-import createTodo from "./assets/script/createTodo.mjs";
 
 const main = document.querySelector("main");
 const addCard = document.querySelector("div.add");

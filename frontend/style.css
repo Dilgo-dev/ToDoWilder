@@ -172,7 +172,6 @@ body>main {
     height: 100%;
     display: flex;
     justify-content: space-between;
-    /* overflow: hidden; */
 }
 
 .card>main>.left>div {
@@ -185,6 +184,7 @@ body>main {
     display: flex;
     align-items: flex-end;
     opacity: 0.1;
+}
 
 .card>main>.right>img {
     height: fit-content;
