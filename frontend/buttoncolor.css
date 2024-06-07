@@ -5,7 +5,7 @@
     --color-4: #8800e2;
     --color-5: #00a86d;
     --color-6: #a80000;
-    --color-7: #dddddd;
+    --color-7: #ffffff;
 }
 
 .card header {
@@ -33,15 +33,15 @@
 
 .menu-button {
     content: url(assets/icon/palette.svg);
-    background: #9088886c;
-    /* border: #ffffff 1px solid; */
+    background: #90888831;
+    border: #ffffff 1px solid;
     background-size: 100%;
-    /* box-shadow: #908888 0 0 5px 5px, inset 0 0 10px 0px black; */
     text-decoration: none;
 }
 
 .menu-item {
     display: none;
+    border: #ffffff 1px solid;
 }
 
 .menu.open .menu-item {
