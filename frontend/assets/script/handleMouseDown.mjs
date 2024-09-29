@@ -2,15 +2,37 @@ import { cardContent, saveTodos } from "../../script.mjs";
 
 export default function handleMouseDown(e, card) {
     const save = cardContent.find((save) => save.element === card);
-    console.log(save)
+    console.log(save);
     let shiftX = e.clientX - card.getBoundingClientRect().left;
     let shiftY = e.clientY - card.getBoundingClientRect().top;
 
     moveAt(e.pageX, e.pageY);
 
     function moveAt(pageX, pageY) {
-        card.style.left = pageX - shiftX + 'px';
-        card.style.top = pageY - shiftY + 'px';
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+
+        const cardWidth = card.offsetWidth;
+        const cardHeight = card.offsetHeight;
+
+        let newLeft = pageX - shiftX;
+        let newTop = pageY - shiftY;
+
+        if (newLeft < 0) {
+            newLeft = 0;
+        }
+        if (newTop < 0) {
+            newTop = 0;
+        }
+        if (newLeft + cardWidth > windowWidth) {
+            newLeft = windowWidth - cardWidth;
+        }
+        if (newTop + cardHeight > windowHeight) {
+            newTop = windowHeight - cardHeight;
+        }
+
+        card.style.left = newLeft + 'px';
+        card.style.top = newTop + 'px';
     }
 
     function onMouseMove(e) {

@@ -1,3 +1,5 @@
+import { cardContent, main } from "../../script.mjs";
+
 function goToFirstPlaceInDOM(cardContainer, card) {
     cardContainer.removeChild(card);
     cardContainer.insertBefore(card, cardContainer.firstChild);

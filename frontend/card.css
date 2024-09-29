@@ -1,0 +1,132 @@
+
+/* Card style */
+
+body>main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Card Inactive */
+
+.card.inactive {
+    height: 3.9rem;
+}
+
+.card.inactive > header > .right,
+.card.inactive > main,
+.card.inactive > header > .left > p {
+    display: none;
+}
+
+.card.inactive:hover > header > .left > p {
+    display: block;
+}
+
+/* Card Active */
+
+.active {
+    height: 18rem;
+    z-index: 10;
+}
+
+.card {
+    display: grid;
+    grid-template-rows: 0.45fr 1fr;
+    border-radius: 8px;
+    background-color: #e8fff3;
+    padding: 0.5rem 1rem;
+    width: 20rem;
+    transition: height .3s ease;
+    box-shadow:
+        inset 0px -7px 16px 0px rgba(173, 173, 173, 0.356);
+}
+
+/* Card Header */
+
+.card>header {
+    display: flex;
+    justify-content: space-between;
+    color: var(--primary-color, #00583a);
+}
+
+.card>header>.left>h2 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.card > header > .right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: .25rem
+}
+
+.card > header > .right > img {
+    width: 2rem;
+}
+
+/* Card Body */
+
+.card>main {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card>main>.left>div {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.card>main>.right {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.card > main > .right > img {
+    opacity: 0.25;
+    transition: opacity .25s ease;
+}
+
+.card > main > .right > img:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+@media (min-width: 1024px) {
+    body>main {
+        display: block;
+    }
+
+    .card {
+        cursor: grab;
+        position: absolute;
+        transition: height 0s ease;
+    }
+
+    .card:active {
+        cursor: grabbing;
+    }
+
+    .card.inactive>header>.right>img {
+        display: block;
+    }
+
+    .card.inactive {
+        height: 18rem;
+    }
+
+    .card.inactive:hover {
+        height: 18rem;
+    }
+.card.inactive > header > .right,
+.card.inactive > header > .left > p {
+    display: block;
+}
+.card.inactive > main,
+.card.inactive > header > .right {
+    display: flex;
+}
+}

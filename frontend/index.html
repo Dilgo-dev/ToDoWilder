@@ -4,16 +4,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Organisez votre vie et boostez votre productivité avec notre application de gestion de tâches. Créez, planifiez et suivez vos tâches quotidiennes facilement. Essayez notre site de todo dès aujourd'hui !">
     <meta name="darkreader-lock" />
-    <title>ToDoWilder</title>
-    <link ref="icon" href="./assets/favicon/favicon.ico" />
+    <title>To-Do</title>
+    <link ref="icon" href="./favicon.ico" />
     <link ref="icon" type="image/png" size="32x32" href="./assets/favicon/favicon-32x32.png" />
     <link ref="icon" type="image/png" size="16x16" href="./assets/favicon/favicon-16x16.png" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="card.css" />
     <link rel="stylesheet" href="buttoncolor.css" />
+    <link rel="stylesheet" href="confirm.css">
+    <link rel="stylesheet" href="wave.css">
     <script src="./script.mjs" type="module" defer></script>
-
-
 </head>
 
 <body>
@@ -22,19 +24,37 @@
         <p>Create your categorized task boards.</p>
     </header>
 
-        <div>
-            <div class="wave"></div>
-            <div class="wave"></div>
-            <div class="wave"></div>
-            <div class="wave"></div>
-        </div>
+    <div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
     <main></main>
+
 
     <nav>
         <div class="add">
             <img class="cross" src="./assets/icon/add.svg" alt="Add button" />
         </div class="dots">
-        <img src="./assets/icon/dots.svg" alt="More button" />
+    <nav class="menuback">
+        <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
+        <label class="menu-open-button" for="menu-open">
+            <img src="./assets/icon/palette.svg" alt="">
+        </label>
+        <a href="#" class="menu-back aurora"> <i class="fa fa-anchor"></i> </a>
+        <a href="#" class="menu-back orchid"> <i class="fa fa-coffee"></i> </a>
+        <a href="#" class="menu-back corail"> <i class="fa fa-heart"></i> </a>
+        <a href="#" class="menu-back marigold"> <i class="fa fa-microphone"></i> </a>
+        <a href="#" class="menu-back azurin"> <i class="fa fa-star"></i> </a>
+        <a href="#" class="menu-back amethyste"> <i class="fa fa-diamond"></i> </a>
+    </nav>
+        <img src="./assets/icon/delete.svg" alt="More button" />
+        <div class="container-confirm">
+            <p>Voulez vous vraiment supprimer ?</p>
+            <button id="yes">Oui</button>
+            <button id="no">Non !</button>
+        </div>
     </nav>
 </body>
 

@@ -3,7 +3,7 @@
 :root {
     /* Default color     */
     --primary-color: #00583a;
-    --secondary-color: #dddddd7c;
+    --secondary-color: #dddddd;
     --thirdy-color: #00ad267c;
     /* Colors panel */
     --primary-grey: #949494;
@@ -34,6 +34,10 @@
     padding: 0;
     font-family: "Poppins";
 }
+button {
+    border: none;
+    background-color: transparent;
+}
 
 /* Main container */
 
@@ -58,9 +62,7 @@ body {
 
 /* Background */
 .wave {
-    /* background: linear-gradient(315deg, #0fe90749 3%, #24fd7e7e 38%, #00e5e97c 68%, #008cff77 98%); */
-    background: linear-gradient(315deg, #d36f357c 3%, #b931e27e 38%, #ff7f0877 68%, #6202fd49 98%);
-    /* background: linear-gradient(315deg, #00fff2a4 3%, #fc38387e 38%, #a1f4ff7c 68%, #ff000077 98%); */
+    background: linear-gradient(315deg, #0fe90749 3%, #24fd7e7e 38%, #00e5e97c 68%, #008cff77 98%);
     border-radius: 1000% 1000% 0 0;
     position: fixed;
     width: 200%;
@@ -119,110 +121,6 @@ body {
     }
 }
 
-/* Card style */
-
-body>main {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.inactive {
-    height: 3.9rem;
-}
-
-.inactive>header>.right>img {
-    display: none;
-}
-
-.inactive:hover {
-    height: 5.25rem;
-}
-
-.active {
-    height: 18rem;
-    z-index: 10;
-}
-
-.card {
-    display: grid;
-    /* border-top: 1px white solid; */
-    grid-template-rows: 0.45fr 1fr;
-    border-radius: 8px;
-    background-color: var(--secondary-color, #e8fff3);
-    padding: 0.5rem 1rem;
-    width: 20rem;
-    transition: height .3s ease;
-    box-shadow: 0 -4px 8px 0px rgba(255, 255, 255, 0.863),
-        0px -7px 16px 0px rgba(255, 255, 255, 0.24),
-        inset 0px -7px 16px 0px rgba(173, 173, 173, 0.356);
-}
-
-.card>header {
-    display: flex;
-    justify-content: space-between;
-    color: var(--primary-color, #00583a);
-}
-
-.card>header>.left>h2 {
-    font-size: 2rem;
-    font-weight: 600;
-}
-
-.card>main {
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    /* overflow: hidden; */
-}
-
-.card>main>.left>div {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.card>main>.right {
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    opacity: 0.1;
-}
-
-.card>main>.right>img {
-    height: fit-content;
-}
-
-.card>main>.right:hover {
-    opacity: 1;
-    transition: 0.4s;
-    cursor: pointer;
-}
-
-@media (min-width: 1024px) {
-body>main {
-    display: block;
-}
-
-.card {
-    cursor: grab;
-    position: absolute;
-    transition: height 0s ease;
-}
-
-.card:active {
-    cursor: grabbing;
-}
-.inactive>header>.right>img {
-    display: block;
-}
-
-.inactive {
-    height: 18rem;
-}
-.inactive:hover {
-    height: 18rem;
-}
-}
 
 /* Color themes cards */
 
@@ -232,9 +130,14 @@ body>main {
 nav {
     width: 100%;
     display: flex;
+    position: relative;
     justify-content: flex-end;
     align-items: center;
     gap: 0.95rem;
+}
+
+nav > img {
+    cursor: pointer;
 }
 
 /*Bouton add card*/
@@ -268,7 +171,7 @@ nav {
     width: 8rem;
     border-radius: 50px;
     background-color: var(--thirdy-color);
-    align-items: center;
+    justify-content: center;
 }
 
 .add:hover .cross {

@@ -1,10 +1,12 @@
 import nextCard, { prevCard } from "./assets/script/nextCard.mjs";
-import createCard from "./assets/script/createCard.mjs";
+import createCard from "./assets/script/create/createCard.mjs";
 import getSavedCard from "./assets/script/getSavedCard.mjs";
-import createTodo from "./assets/script/createTodo.mjs";
+import createConfirm from "./assets/script/create/createConfirm.mjs";
+import deleteAllCard from "./assets/script/deleteAllCard.mjs";
+import changebackground from "./assets/script/changeBackground.mjs";
 
 
-const main = document.querySelector("main");
+export const main = document.querySelector("main");
 const addCard = document.querySelector("div.add");
 export const cardContent = [];
 
@@ -20,13 +22,20 @@ const isExistTitle = (newTitle) => {
     return false;
 }
 
-export function random(max) { return Math.floor(Math.random() * max)};
+export function random(max) {
+    const randomNumber = Math.floor(Math.random() * max);
+    console.log(max)
+    console.log("Random number: ", randomNumber)
+    return randomNumber
+};
 
 export const saveTodos = () => { localStorage.setItem("todos", JSON.stringify(cardContent)) };
 
 addCard.addEventListener("click", () => {
+    const result = prompt("Nom de la nouvelle carte :")
+    if (isExistTitle(result)) return
     // Créer la carte avec le titre
-    const card = createCard("");
+    const card = createCard(result);
     // Ajout de notre nouvelle carte donc elle prends la class .active
     card.classList.add("active");
 
@@ -36,13 +45,13 @@ addCard.addEventListener("click", () => {
         div.element.classList.add("inactive");
     }
     // Push la nouvelle carte dans le tableau
-    card.style.top = random(window.screen.width) + "px";
-    card.style.left = random(window.screen.height) + "px";
+    main.appendChild(card);
+    card.style.top = random(window.screen.height - card.offsetHeight * 2) + "px";
+    card.style.left = random(window.screen.width - card.offsetWidth * 2) + "px";
 
     // On actualise le dom avec la nouvelle carte
-    main.appendChild(card);
     card.querySelector("header > .left > h2").focus();
-    cardContent.push({ title: result, element: card , position: {left: 0, top: 0}});
+    cardContent.push({ title: result, element: card , position: {left: card.style.left, top: card.style.top}});
     saveTodos();
 });
 
@@ -63,4 +72,20 @@ main.addEventListener("wheel", (event) => {
     event.preventDefault();
 });
 
+const deleteButton = document.querySelector("nav > img");
+const containerConfirm = document.querySelector("nav > .container-confirm")
+const buttonYes = document.querySelector("button#yes");
+const buttonNo = document.querySelector("button#no");
 
+deleteButton.addEventListener("click", () => {
+    containerConfirm.classList.toggle("open");
+    buttonNo.focus()
+    buttonYes.addEventListener("click", () => {
+        deleteAllCard();
+    })
+    buttonNo.addEventListener("click", () => {
+        containerConfirm.classList.toggle("open");
+    })
+});
+
+changebackground();

@@ -1,4 +1,4 @@
-import createCard from "./createCard.mjs";
+import createCard from "./create/createCard.mjs";
 import { random } from "../../script.mjs";
 
 export default function getSavedCard(cardContent, main) {
@@ -6,9 +6,8 @@ export default function getSavedCard(cardContent, main) {
     const saved = JSON.parse(localStorage.getItem("todos"));
 
     // If no save then return
-    if (!saved) {
-        return;
-    }
+    if (!saved || saved.length === 0) return;
+
 
     // If there is saved Todo loop in it
     for (const todo of saved) {
@@ -17,11 +16,9 @@ export default function getSavedCard(cardContent, main) {
 
         // Get position from save
         if (todo.position) {
-            console.log(todo.position)
             card.style.top = todo.position.top + "px";
             card.style.left = todo.position.left + "px";
         } else {
-            console.log(random(window.screen.width) + "px");
             card.style.top = random(window.screen.width) + "px";
             card.style.left = random(window.screen.height) + "px";
         }

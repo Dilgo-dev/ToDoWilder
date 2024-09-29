@@ -38,17 +38,21 @@ export default function buttonsColor(container, card) {
   ];
 
   const divColor = document.createElement('div');
-  divColor.classList.add('containColor');
+  divColor.classList.add('container-color');
   container.appendChild(divColor);
+
+
+  const buttonPalette = document.createElement('button');
+  buttonPalette.classList.add('menu-button', 'icon-plus');
+  divColor.appendChild(buttonPalette);
+
+  const imageButton = document.createElement("img");
+  imageButton.src = "./assets/icon/palette.svg";
+  buttonPalette.appendChild(imageButton);
 
   const ulColor = document.createElement('ul');
   ulColor.classList.add("menu");
   divColor.appendChild(ulColor);
-
-  const aMenucolorPlus = document.createElement('a');
-  aMenucolorPlus.classList.add('menu-button', 'icon-plus');
-  aMenucolorPlus.href = "#";
-  ulColor.appendChild(aMenucolorPlus);
 
   tabColors.forEach(tabColor => {
     const liColor = document.createElement('li');
@@ -68,7 +72,7 @@ export default function buttonsColor(container, card) {
     });
   });
 
-  aMenucolorPlus.addEventListener('click', (event) => {
+  buttonPalette.addEventListener('click', (event) => {
     event.preventDefault();
     ulColor.classList.toggle('open');
   });
