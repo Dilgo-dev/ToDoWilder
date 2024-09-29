@@ -1,3 +1,121 @@
+<<<<<<< HEAD
+:root {
+    --color-1: #949494;
+    --color-2: #0088d6;
+    --color-3: #d6da00;
+    --color-4: #8800e2;
+    --color-5: #00a86d;
+    --color-6: #a80000;
+    --color-7: #dddddd;
+}
+
+.container-color {
+    position: relative;
+}
+
+.container-color > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #9088886c;
+}
+
+.container-color > ul {
+    position: absolute;
+    opacity: 0;
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    list-style: none;
+    background-color: white;
+
+    padding: .5rem;
+    border-radius: 1rem;
+
+    transition: opacity 1s ease;
+    cursor: auto;
+    transform: translateX(-50%);
+}
+
+.container-color > button,
+.container-color > ul > li {
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    margin: 0.5rem;
+    transition: transform 0.25s ease;
+}
+
+.container-color > button:hover {
+    transform: scale(1.2);
+}
+.container-color > ul > li:hover {
+    transform: scale(1.5);
+}
+
+
+.container-color > ul > li {
+    display: none;
+}
+
+.container-color > ul,
+.container-color > ul > li {
+    opacity: 0;
+    background-color: transparent;
+}
+
+.container-color > ul.open {
+    opacity: 1;
+    background-color: white;
+}
+
+.container-color > ul.open > li {
+    display: block;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+.container-color > ul.open > li:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.container-color > ul.open > li:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.container-color > ul.open > li:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.container-color > ul.open > li:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.container-color > ul.open > li:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.container-color > ul.open > li:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+.container-color > ul.open > li:nth-child(7) {
+    animation-delay: 0.6s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+=======
 :root {
     --color-1: #949494;
     --color-2: #0088d6;
@@ -49,3 +167,4 @@
     display: block;
 }
 
+>>>>>>> bdee780634a3197628f43728158d3e75f97c4fd2

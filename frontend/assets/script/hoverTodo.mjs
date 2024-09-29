@@ -1,4 +1,6 @@
-export default function hoverDelete(label, container) {
+import { getCounter, updateCounter } from "./create/createCard.mjs";
+
+export default function hoverDelete(label, container, card) {
     /*  when hovering the label, we should see a bin and the bin will be used to remove label*/
 
 
@@ -29,7 +31,11 @@ export default function hoverDelete(label, container) {
     });
 
     // now add event on bin in order to delete item
+    console.log("Container : " + container)
     bin.addEventListener("click", () => {
+        const { counterTodo, counterMaxTodo } = getCounter(card);
+        const isCheck = container.querySelector("input").checked;
+        updateCounter(card, isCheck ? counterTodo - 1 : counterTodo, counterMaxTodo - 1);
         container.remove();
     });
 

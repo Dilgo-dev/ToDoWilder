@@ -1,10 +1,12 @@
 
+import { cardContent, main, saveTodos } from "../../script.mjs";
 import nextCard from "./nextCard.mjs";
-// fonction pour supprimer la carte active quand on clic sur l'image classe ".delete-svg"
+
 export default function deleteCard(cardContainer) {
-    if (cardContainer.classList.contains("active")) {
-        cardContainer.remove();
-    };
+    const card = cardContent.findIndex((card) => card.element === cardContainer);
 
+    cardContent.splice(card, 1);
+    saveTodos();
+    cardContainer.remove();
+    nextCard(main, cardContent);
 }
-

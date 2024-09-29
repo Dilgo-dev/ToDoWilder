@@ -1,3 +1,5 @@
+import { cardContent, main } from "../../script.mjs";
+
 function goToFirstPlaceInDOM(cardContainer, card) {
     cardContainer.removeChild(card);
     cardContainer.insertBefore(card, cardContainer.firstChild);
@@ -33,6 +35,7 @@ function goToLastPlaceInArray(array, index) {
 }
 
 export default function nextCard(cardContainer, cardContent) {
+    if (!(cardContainer.children.length > 1)) return;
     const newIndex = cardContent.length - 2;
     const oldIndex = cardContent.length - 1;
     const newActiveCard = cardContent[newIndex];
@@ -53,11 +56,10 @@ export default function nextCard(cardContainer, cardContent) {
     newActiveCard.element.classList.add("active");
     oldActiveCard.element.classList.remove("active");
     oldActiveCard.element.classList.add("inactive");
-    console.log(cardContent);
 }
 
 export function prevCard(cardContainer, cardContent) {
-    console.log(cardContainer.children);
+    if (!(cardContainer.children.length > 1)) return;
     const newIndex = 0;
     const oldIndex = cardContent.length - 1;
     const newActiveCard = cardContent[newIndex];
@@ -71,7 +73,7 @@ export function prevCard(cardContainer, cardContent) {
     goToLastPlaceInArray(cardContent, newIndex);
     goToPlaceInArray(
         cardContent,
-        cardContent.findIndex((element) => element.title === oldActiveCard.title),
+        cardContent.findIndex((element) => element.element === oldActiveCard.element),
         cardContent.length - 2
     );
 

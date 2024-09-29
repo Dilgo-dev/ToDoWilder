@@ -1,26 +1,39 @@
 import nextCard, { prevCard } from "./assets/script/nextCard.mjs";
-import createCard from "./assets/script/createCard.mjs";
-import createTodo from "./assets/script/createTodo.mjs";
+import createCard from "./assets/script/create/createCard.mjs";
 import getSavedCard from "./assets/script/getSavedCard.mjs";
-import menuOption from "./assets/script/menuOption.mjs";
-import changebackground from "./assets/script/changebackground.mjs";
+import createConfirm from "./assets/script/create/createConfirm.mjs";
+import deleteAllCard from "./assets/script/deleteAllCard.mjs";
+import changebackground from "./assets/script/changeBackground.mjs";
 
-const main = document.querySelector("main");
+
+export const main = document.querySelector("main");
 const addCard = document.querySelector("div.add");
-const cardContent = [];
+export const cardContent = [];
 
 getSavedCard(cardContent, main);
-const arrayOption = ["Thème", "Card Complèt", "Card en cours"];
-const option = document.querySelector("nav > img");
-option.addEventListener("click", () => {
-    menuOption(arrayOption);
-})
 
+const isExistTitle = (newTitle) => {
+    const cards = document.querySelectorAll(".card");
 
+    for (const card of cards) {
+        const title = card.querySelector("header > .left > h2").textContent;
+        if (title === newTitle) return true;
+    }
+    return false;
+}
+
+export function random(max) {
+    const randomNumber = Math.floor(Math.random() * max);
+    console.log(max)
+    console.log("Random number: ", randomNumber)
+    return randomNumber
+};
+
+export const saveTodos = () => { localStorage.setItem("todos", JSON.stringify(cardContent)) };
 
 addCard.addEventListener("click", () => {
-    // Recupère le titre de la carte
-    const result = prompt("Titre de la nouvelle carte");
+    const result = prompt("Nom de la nouvelle carte :")
+    if (isExistTitle(result)) return
     // Créer la carte avec le titre
     const card = createCard(result);
     // Ajout de notre nouvelle carte donc elle prends la class .active
@@ -32,18 +45,17 @@ addCard.addEventListener("click", () => {
         div.element.classList.add("inactive");
     }
     // Push la nouvelle carte dans le tableau
-    cardContent.push({ title: result, element: card });
-    localStorage.setItem("todos", JSON.stringify(cardContent));
-    // On actualise le dom avec la nouvelle carte
     main.appendChild(card);
-    // On affiche le tableau de toutes les cartes
-    console.log(cardContent);
+    card.style.top = random(window.screen.height - card.offsetHeight * 2) + "px";
+    card.style.left = random(window.screen.width - card.offsetWidth * 2) + "px";
 
-    deleteCard(card);
+    // On actualise le dom avec la nouvelle carte
+    card.querySelector("header > .left > h2").focus();
+    cardContent.push({ title: result, element: card , position: {left: card.style.left, top: card.style.top}});
+    saveTodos();
 });
 
 //changeCard(main, cardContent, 0);
-changebackground();
 
 document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowUp") {
@@ -59,3 +71,21 @@ main.addEventListener("wheel", (event) => {
     }
     event.preventDefault();
 });
+
+const deleteButton = document.querySelector("nav > img");
+const containerConfirm = document.querySelector("nav > .container-confirm")
+const buttonYes = document.querySelector("button#yes");
+const buttonNo = document.querySelector("button#no");
+
+deleteButton.addEventListener("click", () => {
+    containerConfirm.classList.toggle("open");
+    buttonNo.focus()
+    buttonYes.addEventListener("click", () => {
+        deleteAllCard();
+    })
+    buttonNo.addEventListener("click", () => {
+        containerConfirm.classList.toggle("open");
+    })
+});
+
+changebackground();
