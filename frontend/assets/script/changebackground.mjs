@@ -39,5 +39,4 @@ export default function changebackground() {
         });
     });
 
-    console.log("changebackground function executed");
 }
