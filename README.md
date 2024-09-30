@@ -1,4 +1,4 @@
-<img src="todowilderlogo.png" alt="Logo" width="100%">
+<img src="./frontend/assets/logo/todowilderlogo.png" alt="Logo" width="100%">
 
 # 🗒️✔️ To Do Wilder 🖊️🗃️
 
